@@ -27,9 +27,14 @@ jobs:
     - name: Set up kubectl
       uses: azure/aks-set-context@v1
       with:
-        kube-config: ${{ secrets.KUBE_CONFIG }}
+        resource-group: rg-tutor-project02
+        cluster-name: cluster-prueba-02
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Deploy to AKS
       run: |
+        kubectl apply -f deployment.yaml
+        kubectl apply -f service.yaml
+
         kubectl apply -f deployment.yaml
         kubectl apply -f service.yaml
