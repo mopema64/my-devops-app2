@@ -2,9 +2,9 @@ name: Docker Image CI/CD to AKS
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
-jobs 
+jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
